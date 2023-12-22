@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+</head>
+<?php
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        /*Creating variables*/
+        $name = $_POST["name"];
+        $address = $_POST["address"];
+        $age = $_POST["age"];
+
+
+        $dbhost = "localhost"; /*most of the time it's localhost*/
+        $username = "yourusername";
+        $password = "yourpassword";
+        $dbname = "mydatabase";
+
+        $mysql = mysqli_connect($dbhost, $username, $password, $dbname); //It connects
+        $query = "INSERT INTO yourtable (name,address,age) VALUES $name, $address, $age";
+        mysqli_query($mysql, $query);
+    }
+?>
+<body>
+    <h1>You are in login page</h1>
+    <h3>Please fill the given form with full focus</h3>
+    Name:<input type="text" name="Name" id="name"><br>
+    Email:<input type="email" name="Email" id="Email1"><br><br>
+    <input type="button" value="submit"><br>
+    
+    
+   
+        
+
+</body>
+</html>
+
+
+
+
